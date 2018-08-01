@@ -25,7 +25,7 @@ namespace IUATests.Framework.Utils
             WorkWithFiles.DeleteClassScreenshotsFolder();
             driver = WebDriverFactory.GetInstance();
             //driver = new ChromeDriver();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
             OneTimeSetUp();
             
 
