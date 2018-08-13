@@ -68,6 +68,7 @@
     <Compile Include="Framework\Utils\MultipleWindows.cs" />
     <Compile Include="Framework\Utils\Screenshots.cs" />
     <Compile Include="Framework\Utils\WorkWithFiles.cs" />
+    <Compile Include="Tests\RoxolanasStartPageTests.cs" />
     <Compile Include="Tests\TestBase.cs" />
     <Compile Include="Framework\TestConfigurations.cs" />
     <Compile Include="Framework\WebDriverFactory.cs" />
