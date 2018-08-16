@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <configurations>
-  <browser>CH</browser>
+  <browser>IE</browser>
   <username>scalatest</username>
   <password>scala777</password>
   <environment>QA</environment>

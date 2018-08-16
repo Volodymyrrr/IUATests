@@ -19,10 +19,13 @@ namespace IUATests.Framework.Utils
         [OneTimeSetUp]
         public void BaseOneTimeSetup()
         {
+            IWebDriver d1 = WebDriverFactory.GetInstance();
+            IWebDriver d2 = WebDriverFactory.GetInstance();
+
             WorkWithFiles.DeleteClassScreenshotsFolder();
             driver = WebDriverFactory.GetInstance();
             //driver = new ChromeDriver();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
+            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
             OneTimeSetUp();
             
 

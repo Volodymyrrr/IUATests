@@ -50,12 +50,12 @@ namespace IUATests.Framework
                     //internetExplorerOptions.ForceCreateProcessApi = true;
                     //internetExplorerOptions.BrowserCommandLineArguments = "--port=5555";
                     //internetExplorerOptions.EnsureCleanSession = true;
-                    driver = new InternetExplorerDriver(@"C:\Sources\");
+                    //driver = new InternetExplorerDriver(@"C:\Sources\");
 
                     //InternetExplorerDriverService internetExplorerDriverService = InternetExplorerDriverService.CreateDefaultService();
                     //internetExplorerDriverService.Port = 5555;
                     //return new InternetExplorerDriver(@"C:\Sources\");
-
+                    driver = new InternetExplorerDriver();
 
 
                 }

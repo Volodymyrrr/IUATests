@@ -1317,11 +1317,12 @@
             should use the a protocol dialect compliant with the W3C WebDriver Specification.
             </summary>
             <remarks>
-            Setting this property for driver executables matched to versions of
-            Windows before the 2018 Fall Creators Update will result in a the
-            driver executable shutting down without execution, and all commands
-            will fail. Do not set this property unless you are certain your version
-            of the MicrosoftWebDriver.exe supports the --w3c command-line argument.
+            Setting this property to a non-<see langword="null" /> value for driver
+            executables matched to versions of Windows before the 2018 Fall Creators
+            Update will result in a the driver executable shutting down without
+            execution, and all commands will fail. Do not set this property unless
+            you are certain your version of the MicrosoftWebDriver.exe supports the
+            --w3c and --jwp command-line arguments.
             </remarks>
         </member>
         <member name="P:OpenQA.Selenium.Edge.EdgeDriverService.HasShutdown">
@@ -1824,6 +1825,13 @@
             <param name="geckoDriverDirectory">The full path to the directory containing geckodriver.exe.</param>
             <param name="options">The <see cref="T:OpenQA.Selenium.Firefox.FirefoxOptions" /> to be used with the Firefox driver.</param>
             <param name="commandTimeout">The maximum amount of time to wait for each command.</param>
+        </member>
+        <member name="M:OpenQA.Selenium.Firefox.FirefoxDriver.#ctor(OpenQA.Selenium.Firefox.FirefoxDriverService,OpenQA.Selenium.Firefox.FirefoxOptions)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OpenQA.Selenium.Firefox.FirefoxDriver" /> class using the specified options, driver service, and timeout. Uses the Mozilla-provided Marionette driver implementation.
+            </summary>
+            <param name="service">The <see cref="T:OpenQA.Selenium.Firefox.FirefoxDriverService" /> to use.</param>
+            <param name="options">The <see cref="T:OpenQA.Selenium.Firefox.FirefoxOptions" /> to be used with the Firefox driver.</param>
         </member>
         <member name="M:OpenQA.Selenium.Firefox.FirefoxDriver.#ctor(OpenQA.Selenium.Firefox.FirefoxDriverService,OpenQA.Selenium.Firefox.FirefoxOptions,System.TimeSpan)">
             <summary>
@@ -3998,6 +4006,7 @@
             <param name="toElement">The element to which to move the mouse.</param>
             <param name="offsetX">The horizontal offset to which to move the mouse.</param>
             <param name="offsetY">The vertical offset to which to move the mouse.</param>
+            <param name="offsetOrigin">The <see cref="T:OpenQA.Selenium.Interactions.MoveToElementOffsetOrigin" /> value from which to calculate the offset.</param>
             <returns>A self-reference to this <see cref="T:OpenQA.Selenium.Interactions.Actions" />.</returns>
         </member>
         <member name="M:OpenQA.Selenium.Interactions.Actions.MoveByOffset(System.Int32,System.Int32)">
