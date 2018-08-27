@@ -23,12 +23,12 @@ namespace IUATests.PageObjects
         {
             FirstLanguageSelector.Click();
             IWebElement LanguageFromItem = driver.FindElement(By.XPath("//div[@id='popup_language_menu_1']//li[contains(@data-lang,'"+LangFrom+"')]"));
-            driver.EWaitForDisplayed(5, LanguageFromItem);
+            driver.WaitForDisplayed(5, LanguageFromItem);
             LanguageFromItem.Click();
 
             SecondLanguageSelector.Click();
             IWebElement LanguageToItem = driver.FindElement(By.XPath("//div[@id='popup_language_menu_2']//li[contains(@data-lang,'" + LangTo + "')]"));
-            driver.EWaitForDisplayed(5, LanguageToItem);
+            driver.WaitForDisplayed(5, LanguageToItem);
             LanguageToItem.Click();
 
             FromField.SendKeys(FordFrom);

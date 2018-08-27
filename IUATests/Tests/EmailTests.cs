@@ -26,7 +26,7 @@ namespace IUATests.Tests
     {
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
         passportPage = Navigator.OpenPassportPage(driver);
- 
+        //passportPage.SelectUkrLanguageButton.Click();
 
         }
 
@@ -43,27 +43,28 @@ namespace IUATests.Tests
         {
             
             driver.HoverElement(passportPage.Letter4welcome);
-            string s = passportPage.PopupText.Text;
-
+            string popupText = passportPage.PopupText.Text;
             Assert.Multiple(
                 () =>
                 {
                     Assert.AreEqual("scalatest@i.ua", passportPage.MyEmailOnMailbox.GetAttribute("innerHTML"));
                     Assert.IsTrue(passportPage.Letter2recommendations.Displayed);
                     Assert.IsTrue(passportPage.Letter3help.Displayed);
-                    Assert.IsTrue(passportPage.Letter4welcome.Displayed);
-                    Assert.IsTrue(s.Contains("Добрий день, Scalatest."));
+                    //Assert.IsTrue(passportPage.Letter4welcome.Displayed);
+                    Assert.IsTrue(popupText.Contains("Добрий день, Scalatest."));
                     Assert.IsTrue(passportPage.PopupText.Displayed);
                 }
                 );
-            passportPage.LogOut();
+            
         }
 
         [Test]
         public void DeleteMailShahrai()
         {
             passportPage.DeleteEmailThatContains("Обережно шахраї");
-            passportPage.LogOut();
+            Assert.IsFalse(Elements.CheckElementPresent(passportPage.Letter4welcome));
+            driver.Navigate().Refresh();
+            Assert.IsFalse(Elements.CheckElementPresent(passportPage.Letter4welcome));
         }
 
 
@@ -77,9 +78,9 @@ namespace IUATests.Tests
             passportPage.ExitButton.Click();
             driver.SwitchTo().Window(FirstWindow);
             driver.Navigate().Refresh();
-            Assert.IsFalse(driver.CheckElementPresent(passportPage.SettingsButton));
+            Assert.IsFalse(Elements.CheckElementPresent(passportPage.SettingsButton));
             driver.SwitchToWindowByTitle("І.UA - твоя пошта ");
-            passportPage.LogOut();
+            driver.Close();
         }
 
 

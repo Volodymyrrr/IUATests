@@ -34,6 +34,7 @@ namespace IUATests.PageObjects
         public PassportPage LoginToEmail()
         {
             HomePage homePage = new HomePage(driver);
+            homePage.SelectUkrLanguageButton.Click();
             LoginInput.SendKeys(TestConfigurations.Username);
             PasswordInput.SendKeys(TestConfigurations.Password);
             SendButton.Click();

@@ -29,7 +29,7 @@ namespace IUATests
             HomePage homePage = Navigator.OpenHomePage(driver);
             homePage.SelectUkrLanguageButton.Click();
              passportPage = homePage.LoginToEmail();
-            if (driver.CheckElementPresent(passportPage.CreateMailButtonUKR))
+            if (Elements.CheckElementPresent(passportPage.CreateMailButtonUKR))
             {
                 passportPage.CreateMailButtonUKR.Click();
             }
@@ -85,6 +85,7 @@ namespace IUATests
             passportPage.SubjectField.Clear();
             passportPage.SubjectField.SendKeys(Subject);
             passportPage.SaveToDrafts();
+            passportPage.DraftsButton.Click();
             passportPage.FindMailBySubject(Subject).Click();
             Assert.AreEqual(Subject, passportPage.SubjectField.GetAttribute("value"));
 

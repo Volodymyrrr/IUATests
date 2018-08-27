@@ -115,10 +115,10 @@ namespace IUATests
             alert.Accept();
             //IWebElement Letter1Warning = driver.FindElement(By.XPath("//span[contains(text(),'" + ContainsText + "')]/parent::span/parent::a/preceding-sibling::span/input"));
             IWebElement CheckBox = driver.FindElement(By.XPath("//span[contains(text(),'" + ContainsText + "')]/parent::span/parent::a/preceding-sibling::span/input"));
-            Assert.IsFalse(driver.CheckElementPresent(CheckBox));
+            Assert.IsFalse(Elements.CheckElementPresent(CheckBox));
         }
 
-        [Test]
+        //[Test]
         public void CheckMailIsTrue()
         {
             IWebElement LoginInput = driver.FindElement(By.Name("login"));
@@ -197,7 +197,7 @@ namespace IUATests
             driver.SwitchTo().Window(FirstWindow);
             driver.Navigate().Refresh();
             IWebElement Settings = driver.FindElement(By.XPath("//span[@class='icon-ho ho_settings ho_i_settings']"));
-            Assert.IsFalse(driver.CheckElementPresent(Settings));
+            Assert.IsFalse(Elements.CheckElementPresent(Settings));
             driver.SwitchToWindowByTitle("І.UA - твоя пошта ");
         }
     }

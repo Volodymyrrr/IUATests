@@ -38,6 +38,8 @@ namespace IUATests.PageObjects
         public IWebElement FileNameInput => driver.FindElement(By.XPath("//input[@type='file']"));
         public IWebElement FileLoadedLabel => driver.FindElement(By.XPath("//span[@class='upload_status']"));
 
+        public IWebElement SelectUkrLanguageButton => driver.FindElement(By.ClassName("lang1"));
+
         public void DeleteEmailThatContains(string ContainsText)
         {
             IWebElement FirstLetterCheckbox = driver.FindElement(By.XPath("//span[contains(text(),'" + ContainsText + "')]/parent::span/parent::a/preceding-sibling::span/input"));
@@ -47,7 +49,7 @@ namespace IUATests.PageObjects
             Assert.AreEqual("Видалити листи?", alert.Text);
             alert.Accept();
             IWebElement EmailCheckBox = driver.FindElement(By.XPath("//span[contains(text(),'" + ContainsText + "')]/parent::span/parent::a/preceding-sibling::span/input"));
-            Assert.IsFalse(driver.CheckElementPresent(EmailCheckBox));
+            Assert.IsFalse(Elements.CheckElementPresent(EmailCheckBox));
 
 
         }
@@ -95,11 +97,11 @@ namespace IUATests.PageObjects
 
         public void UploadFile(string filepath, string filename)
         {
-            driver.EWaitForDisplayed(7, AttachFileButton);
+            driver.WaitForDisplayed(7, AttachFileButton);
             AttachFileButton.Click();
-            driver.EWaitForDisplayed(7, FileNameInput);
+            driver.WaitForDisplayed(7, FileNameInput);
             FileNameInput.SendKeys(@filepath + @filename);
-            driver.EWaitForDisplayed(7, FileLoadedLabel);
+            driver.WaitForDisplayed(7, FileLoadedLabel);
             SubjectField.SendKeys("Upload");
 
         }

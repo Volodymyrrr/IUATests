@@ -18,14 +18,14 @@ namespace IUATests.Framework.Utils
             Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
 
             string title = TestContext.CurrentContext.Test.Name;
-            string runname = title + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss");
+            string runName = title + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss");
             string filePath = @"C:\temp\screenshots\" + TestContext.CurrentContext.Test.ClassName+@"\";
             if (!System.IO.Directory.Exists(filePath))
             {
                 System.IO.Directory.CreateDirectory(filePath);
             }
 
-            ss.SaveAsFile(Path.Combine(filePath + runname + ".jpg"), ScreenshotImageFormat.Jpeg);
+            ss.SaveAsFile(Path.Combine(filePath + runName + ".jpg"), ScreenshotImageFormat.Jpeg);
 
 
         }

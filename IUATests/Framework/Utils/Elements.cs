@@ -9,16 +9,16 @@ using OpenQA.Selenium.Interactions;
 
 namespace IUATests.Framework.Utils
 {
-    static class Elements
+    public static class Elements
     {
 
 
-        public static bool CheckElementPresent(this IWebDriver driver, IWebElement element)
+        public static bool CheckElementPresent(IWebElement element)
         {
             bool isPresent = true;
             try
             {
-                bool Displayed = element.Displayed;
+                bool displayed = element.Displayed;
             }
             catch (OpenQA.Selenium.NoSuchElementException)
             {

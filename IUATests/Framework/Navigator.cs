@@ -13,11 +13,10 @@ namespace IUATests.Framework
     {
 
 
-        static IWebDriver driver;
+        //static IWebDriver driver;
 
         public static HomePage OpenHomePage(IWebDriver driver)
         {
-            //driver = WebDriverFactory.GetInstance();
             driver.Navigate().GoToUrl("http://i.ua");
             HomePage homePage = new HomePage(driver);
             return homePage;
@@ -27,10 +26,8 @@ namespace IUATests.Framework
 
         public static PassportPage OpenPassportPage(IWebDriver driver)
         {
-            //driver = WebDriverFactory.GetInstance();
             HomePage homePage = OpenHomePage(driver);
             PassportPage passportPage = homePage.LoginToEmail();
-            passportPage.CreateMailButtonUKR.Click();
             return passportPage;
             
 
