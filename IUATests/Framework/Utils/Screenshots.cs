@@ -20,7 +20,7 @@ namespace IUATests.Framework.Utils
             string baseDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
             string title = TestContext.CurrentContext.Test.Name;
             string runName = title + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss");
-            string filePath = @"C:\temp\screenshots\" + TestContext.CurrentContext.Test.ClassName+@"\";
+            string filePath = @baseDirectory + @"Output\Screenshots\"+TestContext.CurrentContext.Test.ClassName+@"\";
             if (!System.IO.Directory.Exists(filePath))
             {
                 System.IO.Directory.CreateDirectory(filePath);

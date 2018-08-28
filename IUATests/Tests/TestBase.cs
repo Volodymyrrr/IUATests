@@ -8,6 +8,7 @@ using NUnit.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using System.IO;
+using NUnit.Framework.Interfaces;
 
 namespace IUATests.Framework.Utils
 {
@@ -19,13 +20,9 @@ namespace IUATests.Framework.Utils
         [OneTimeSetUp]
         public void BaseOneTimeSetup()
         {
-            IWebDriver d1 = WebDriverFactory.GetInstance();
-            IWebDriver d2 = WebDriverFactory.GetInstance();
 
             WorkWithFiles.DeleteClassScreenshotsFolder();
             driver = WebDriverFactory.GetInstance();
-            //driver = new ChromeDriver();
-            //driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
             OneTimeSetUp();
             
 
@@ -64,7 +61,10 @@ namespace IUATests.Framework.Utils
         {
             Console.WriteLine(TestContext.CurrentContext.Result.Outcome.Status);
             Console.WriteLine("---------------");
-            Screenshots.MakeScreenshot(driver);
+            if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
+            {
+                Screenshots.MakeScreenshot(driver);
+            }
             TearDown();
 
         }
