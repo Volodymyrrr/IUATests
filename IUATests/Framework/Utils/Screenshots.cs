@@ -17,6 +17,7 @@ namespace IUATests.Framework.Utils
         {
             Screenshot ss = ((ITakesScreenshot)driver).GetScreenshot();
 
+            string baseDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
             string title = TestContext.CurrentContext.Test.Name;
             string runName = title + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH_mm_ss");
             string filePath = @"C:\temp\screenshots\" + TestContext.CurrentContext.Test.ClassName+@"\";
