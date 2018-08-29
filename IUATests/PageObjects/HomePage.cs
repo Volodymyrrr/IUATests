@@ -35,8 +35,8 @@ namespace IUATests.PageObjects
         {
             HomePage homePage = new HomePage(driver);
             homePage.SelectUkrLanguageButton.Click();
-            LoginInput.SendKeys(TestConfigurations.Username);
-            PasswordInput.SendKeys(TestConfigurations.Password);
+            LoginInput.SendKeys(TestConfigurations.username);
+            PasswordInput.SendKeys(TestConfigurations.password);
             SendButton.Click();
             return new PassportPage(driver);
         }

@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
 using NUnit.Framework;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
 using IUATests.PageObjects;
 using IUATests.Framework.Utils;
 using IUATests.Framework;
@@ -16,7 +9,6 @@ namespace IUATests
     [TestFixture]
     class TestEditing: TestBase
     {
-        //IWebDriver driver;
         PassportPage passportPage;
         string Text;
         string Subject;
@@ -25,10 +17,9 @@ namespace IUATests
         
         public override void OneTimeSetUp()
         {
-            //driver = new ChromeDriver();
             HomePage homePage = Navigator.OpenHomePage(driver);
             homePage.SelectUkrLanguageButton.Click();
-             passportPage = homePage.LoginToEmail();
+            passportPage = homePage.LoginToEmail();
             if (Elements.CheckElementPresent(passportPage.CreateMailButtonUKR))
             {
                 passportPage.CreateMailButtonUKR.Click();

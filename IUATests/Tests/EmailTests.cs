@@ -18,17 +18,13 @@ namespace IUATests.Tests
     [TestFixture]
     class EmailTests:TestBase {
 
-
         PassportPage passportPage;
-
     
     public override void OneTimeSetUp()
     {
         driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(4);
         passportPage = Navigator.OpenPassportPage(driver);
-        //passportPage.SelectUkrLanguageButton.Click();
-
-        }
+     }
 
 
     [OneTimeTearDown]

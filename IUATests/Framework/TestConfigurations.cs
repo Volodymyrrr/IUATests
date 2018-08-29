@@ -12,10 +12,10 @@ namespace IUATests.Framework.Utils
     {
 
 
-        public static string Browser;
-        public static string Username;
-        public static string Password;
-        public static string Environment;
+        public static string browser;
+        public static string username;
+        public static string password;
+        public static string environment;
 
 
         public static TestConfigurations configs;
@@ -25,8 +25,6 @@ namespace IUATests.Framework.Utils
             string executingAssembly = System.Reflection.Assembly.GetExecutingAssembly().Location;
             string path = new DirectoryInfo(executingAssembly).Parent.Parent.Parent.FullName;
             return Path.Combine(path, "Configs.xml");
-
-
         }
 
 
@@ -35,32 +33,21 @@ namespace IUATests.Framework.Utils
             XmlDocument xmlDoc = new XmlDocument();
             string path = GetFileConfigPath();
             xmlDoc.Load(GetFileConfigPath());
-            Browser = xmlDoc.DocumentElement.SelectSingleNode("browser").InnerText;
-            Username = xmlDoc.DocumentElement.SelectSingleNode("username").InnerText;
-            Password = xmlDoc.DocumentElement.SelectSingleNode("password").InnerText;
-            Environment = xmlDoc.DocumentElement.SelectSingleNode("environment").InnerText;
-
-
- 
-
-
+            browser = xmlDoc.DocumentElement.SelectSingleNode("browser").InnerText;
+            username = xmlDoc.DocumentElement.SelectSingleNode("username").InnerText;
+            password = xmlDoc.DocumentElement.SelectSingleNode("password").InnerText;
+            environment = xmlDoc.DocumentElement.SelectSingleNode("environment").InnerText;
         }
+
+
+
         public static TestConfigurations GetInstance()
         {
-
-
-            //lock (obj)
             {
-
                 if (configs == null)
                 {
-                    //GetFileConfigPath();
                     GetConfigs();
                     configs = new TestConfigurations();
-
-
-
-
                 }
             }
             return configs;

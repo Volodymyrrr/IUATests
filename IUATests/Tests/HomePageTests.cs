@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium.Support.PageObjects;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using NUnit.Framework;
-using OpenQA.Selenium.Support;
-using OpenQA.Selenium.Support.UI;
+﻿using NUnit.Framework;
 using IUATests.PageObjects;
 using IUATests.Framework.Utils;
 using IUATests.Framework;
@@ -20,7 +10,7 @@ namespace IUATests.Tests
     class HomePageTests:TestBase
     {
 
-        //IWebDriver driver;
+
         HomePage homePage;
 
         
@@ -29,7 +19,6 @@ namespace IUATests.Tests
             Navigator.OpenHomePage(driver);
             homePage = new HomePage(driver);
             driver.Manage().Window.Maximize();
-            //homePage.LoginButton.Click();
             homePage.SelectUkrLanguageButton.Click();
             driver.Manage().Window.Maximize();
             homePage = new HomePage(driver);
@@ -42,13 +31,13 @@ namespace IUATests.Tests
         
         public override void OneTimeTearDown()
         {
-            //driver.Quit();
+
         }
 
         [Test]
         public void TestLoginFormElementsDisplayed()
         {
-            //HomePage homePage = new HomePage(driver);
+
             Assert.Multiple(
                 () =>
                 {

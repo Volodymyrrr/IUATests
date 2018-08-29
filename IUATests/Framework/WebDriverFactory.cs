@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
-using NUnit.Framework;
 using IUATests.Framework.Utils;
-using IUATests.Framework;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Firefox;
@@ -30,19 +24,19 @@ namespace IUATests.Framework
             {
                 TestConfigurations configs = TestConfigurations.GetInstance();
 
-                if (TestConfigurations.Browser == chrome)
+                if (TestConfigurations.browser == chrome)
                 {
 
 
                     driver = new ChromeDriver();
                 }
-                else if (TestConfigurations.Browser == firefox)
+                else if (TestConfigurations.browser == firefox)
                 {
 
 
                     driver = new FirefoxDriver();
                 }
-                else if (TestConfigurations.Browser == internetExplorer)
+                else if (TestConfigurations.browser == internetExplorer)
                 {
                     //InternetExplorerOptions internetExplorerOptions = new InternetExplorerOptions();
                     //internetExplorerOptions.IgnoreZoomLevel = true;

@@ -25,41 +25,40 @@ namespace IUATests.Tests
         public class LoginPage
         {
             IWebDriver driver;
-            private object webdriver;
-            HomePage homePage;
-            //InboxPage inboxPage;
+            public HomePage homePage;
 
-            public object WebDriverFactory { get; private set; }
+            //public object WebDriverFactory { get; private set; }
 
             [OneTimeSetUp]
             public void SetUp()
             {
                 driver = new ChromeDriver();
                 driver.Navigate().GoToUrl("http://www.i.ua/");
+                homePage = new HomePage(driver);
             }
 
 
+
             [Test]
-            public void DisplayedLogin()
+            public void CheckThatLoginDispalyed()
 
             {
-                HomePage homePage = new HomePage(driver);
                 Assert.IsTrue(homePage.LoginInput.Displayed);
             }
 
 
 
             [Test]
-            public void DisplayedPassword()
+            public void CheckThatPasswordDisplayed()
             {
-                HomePage homePage = new HomePage(driver);
+
                 Assert.IsTrue(homePage.PasswordInput.Displayed);
             }
 
             [Test]
-            public void DisplayedSendButton()
+            public void CheckThatSendButtonDisplayed()
             {
-                HomePage homePage = new HomePage(driver);
+
                 Assert.IsTrue(homePage.SendButton.Displayed);
             }
 

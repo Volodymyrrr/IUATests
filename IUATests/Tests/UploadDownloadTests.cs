@@ -16,9 +16,6 @@ using System.IO;
 namespace IUATests.Tests
 {
 
-
-
-
     [TestFixture]
     class UploadDownloadTests:TestBase
     {
@@ -28,17 +25,11 @@ namespace IUATests.Tests
         public override void OneTimeSetUp()
         {
             passportPage = Navigator.OpenPassportPage(driver);
-
-
         }
 
         [SetUp]
         public void SetUp()
-        {
-            
-
-            
-
+        { 
 
 
         }
@@ -47,14 +38,12 @@ namespace IUATests.Tests
         [Test]
         public void UploadDownloadFile()
         {
-
             passportPage.UploadFile(@"C:\temp\", @"2017-12-05_Zircon_15248.log");
             passportPage.SaveDraftButton.Click();
             passportPage.DraftsButton.Click();
             passportPage.FindMailBySubject("Upload").Click();
             passportPage.DownloadFileByNameLink().Click();
             Assert.IsTrue(File.Exists(@"C:\Users\User\Downloads\2017-12-05_Zircon_15248.log"));
-
         }
 
 
