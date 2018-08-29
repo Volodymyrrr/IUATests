@@ -10,13 +10,14 @@ namespace IUATests.Framework.Utils
 {
     class WorkWithFiles
     {
-
+        public string baseDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
 
         public static void DeleteClassScreenshotsFolder()
         {
-            if (System.IO.Directory.Exists(@"C:\temp\screenshots\" + TestContext.CurrentContext.Test.ClassName + @"\"))
+            string baseDirectory = System.AppDomain.CurrentDomain.BaseDirectory;
+            if (System.IO.Directory.Exists(@baseDirectory + @"Output\Screenshots\" + TestContext.CurrentContext.Test.ClassName + @"\"))
             {
-                System.IO.Directory.Delete(@"C:\temp\screenshots\" + TestContext.CurrentContext.Test.ClassName + @"\", true);
+                System.IO.Directory.Delete(@baseDirectory + @"Output\Screenshots\" + TestContext.CurrentContext.Test.ClassName + @"\", true);
             }
         }
     }
