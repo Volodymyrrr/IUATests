@@ -74,7 +74,8 @@ namespace IUATests.Tests
             passportPage.ExitButton.Click();
             driver.SwitchTo().Window(FirstWindow);
             driver.Navigate().Refresh();
-            Assert.IsFalse(Elements.CheckElementPresent(passportPage.SettingsButton));
+            bool isSettingsButtonPresent = Elements.CheckElementPresent(passportPage.SettingsButton);
+            Assert.IsFalse(isSettingsButtonPresent);
             driver.SwitchToWindowByTitle("І.UA - твоя пошта ");
             driver.Close();
         }

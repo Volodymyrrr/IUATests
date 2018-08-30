@@ -30,11 +30,12 @@ namespace IUATests.Tests
             //public object WebDriverFactory { get; private set; }
 
             [OneTimeSetUp]
-            public void SetUp()
+            public void OneTimeSetUp()
             {
                 driver = new ChromeDriver();
                 driver.Navigate().GoToUrl("http://www.i.ua/");
                 homePage = new HomePage(driver);
+                homePage.SelectUkrLanguageButton.Click();
             }
 
 

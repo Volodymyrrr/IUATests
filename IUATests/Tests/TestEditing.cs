@@ -20,18 +20,10 @@ namespace IUATests
             HomePage homePage = Navigator.OpenHomePage(driver);
             homePage.SelectUkrLanguageButton.Click();
             passportPage = homePage.LoginToEmail();
-            if (Elements.CheckElementPresent(passportPage.CreateMailButtonUKR))
-            {
-                passportPage.CreateMailButtonUKR.Click();
-            }
-            else
-            {
-                passportPage.CreateMailButtonRUS.Click();
-
-            };
             Subject = "Subject_" + DateTime.Now.ToShortTimeString();
             Text = "MessageText";
             Receiver = "oldmail@mail.com";
+            passportPage.CreateMailButtonUKR.Click();
             passportPage.SubjectField.SendKeys(Subject);
             passportPage.MessageField.SendKeys(Text);
             passportPage.ToField.SendKeys(Receiver);
@@ -65,6 +57,7 @@ namespace IUATests
             passportPage.ToField.Clear();
             passportPage.ToField.SendKeys("newmail@mail.com");
             passportPage.SaveToDrafts();
+            passportPage.DraftsButton.Click();
             passportPage.FindMailBySubject(Subject).Click();
             Assert.AreEqual("newmail@mail.com", passportPage.ToField.GetAttribute("value"));
         }
@@ -89,6 +82,7 @@ namespace IUATests
             passportPage.MessageField.Clear();
             passportPage.MessageField.SendKeys("Message");
             passportPage.SaveToDrafts();
+            passportPage.DraftsButton.Click();
             passportPage.FindMailBySubject(Subject).Click();
             Assert.AreEqual("Message\r\n", passportPage.MessageField.GetAttribute("value"));
 
