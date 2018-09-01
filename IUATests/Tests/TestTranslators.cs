@@ -18,13 +18,14 @@ namespace IUATests
     {
 
         
-        IWebDriver driver;
+        
+        HomePage homePage;
         TranslatePage translatePage;
         
         override public void  OneTimeSetUp()
         {
             TestConfigurations configs = TestConfigurations.GetInstance();
-            HomePage homePage = Navigator.OpenHomePage(driver);
+            homePage = Navigator.OpenHomePage(driver);
             homePage.SelectUkrLanguageButton.Click();
             translatePage = Navigator.OpenTranslatePage(driver);
         }

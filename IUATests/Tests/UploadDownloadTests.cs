@@ -20,11 +20,15 @@ namespace IUATests.Tests
     class UploadDownloadTests:TestBase
     {
 
+        HomePage homePage;
         PassportPage passportPage;
         
         public override void OneTimeSetUp()
         {
+            homePage = Navigator.OpenHomePage(driver);
+            homePage.SelectUkrLanguageButton.Click();
             passportPage = Navigator.OpenPassportPage(driver);
+            passportPage.CreateMailButtonUKR.Click();
         }
 
         [SetUp]
@@ -38,12 +42,12 @@ namespace IUATests.Tests
         [Test]
         public void UploadDownloadFile()
         {
-            passportPage.UploadFile(@"C:\temp\", @"2017-12-05_Zircon_15248.log");
+            passportPage.UploadFile(@"C:\temp\", @"test.txt");
             passportPage.SaveDraftButton.Click();
             passportPage.DraftsButton.Click();
             passportPage.FindMailBySubject("Upload").Click();
             passportPage.DownloadFileByNameLink().Click();
-            Assert.IsTrue(File.Exists(@"C:\Users\User\Downloads\2017-12-05_Zircon_15248.log"));
+            Assert.IsTrue(File.Exists(@"C:\Users\User\Downloads\test.txt"));
         }
 
 

@@ -16,6 +16,12 @@ namespace IUATests
             wait.Until(p => element.Displayed);
         }
 
+        public static void OTherWaitForDisplayed(this IWebDriver driver, int SecondsSpan, By by)
+        {
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(SecondsSpan));
+            wait.Until(ExpectedConditions.ElementIsVisible(by));
+        }
+
         public static void WaitForEnabled(this IWebDriver driver, int SecondsSpan, By by)
         {
             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(SecondsSpan));

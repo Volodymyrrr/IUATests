@@ -28,6 +28,7 @@ namespace IUATests.PageObjects
         public IWebElement ExitButton => driver.FindElement(By.LinkText("Вихід"));
         public IWebElement SettingsButton => driver.FindElement(By.XPath("//span[@class='icon-ho ho_settings ho_i_settings']"));
         public IWebElement SaveDraftButton => driver.FindElement(By.XPath("//input[@name='save_in_drafts']"));
+        public IWebElement LoginButtonAfterExit => driver.FindElement(By.XPath("//a[text()='Вхід']"));
         public IWebElement DraftsButton => driver.FindElement(By.XPath("//a[contains(text(),'Чернетки')]"));
         public IWebElement FirstDraft => driver.FindElement(By.XPath("//div[@class='row new']/a/span[@class='sbj']/span"));
         public IWebElement ToField => driver.FindElement(By.Id("to"));
@@ -99,7 +100,7 @@ namespace IUATests.PageObjects
         {
             driver.WaitForDisplayed(7, AttachFileButton);
             AttachFileButton.Click();
-            driver.WaitForDisplayed(7, FileNameInput);
+            driver.OTherWaitForDisplayed(7, By.XPath("//input[@type='file']"));
             FileNameInput.SendKeys(@filepath + @filename);
             driver.WaitForDisplayed(7, FileLoadedLabel);
             SubjectField.SendKeys("Upload");
